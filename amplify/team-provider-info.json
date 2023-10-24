@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tallerisc-staging-224855-authRole",
+      "UnauthRoleArn": "arn:aws:iam::262764262296:role/amplify-tallerisc-staging-224855-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::262764262296:role/amplify-tallerisc-staging-224855-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-tallerisc-staging-224855-deployment",
+      "UnauthRoleName": "amplify-tallerisc-staging-224855-unauthRole",
+      "StackName": "amplify-tallerisc-staging-224855",
+      "StackId": "arn:aws:cloudformation:us-west-2:262764262296:stack/amplify-tallerisc-staging-224855/58c7b2c0-71f6-11ee-a54e-02bf0f126d11",
+      "AmplifyAppId": "duqjviurg4ywv"
+    },
+    "categories": {
+      "auth": {
+        "tallerisc": {}
+      }
+    }
+  }
+}
