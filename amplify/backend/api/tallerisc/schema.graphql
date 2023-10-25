@@ -1,6 +1,13 @@
-type Users @model @auth(rules: [{allow: public}]) {
+type Post @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  message: String
+  owner: String
+}
+
+type Users @model @auth(rules: [{allow: private}]) {
   id: ID!
   firstName: String
   lastName: String
   email: AWSEmail
 }
+ 
