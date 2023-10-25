@@ -56,7 +56,7 @@ function App({ signOut, user }) {
 
       {
         statePosts.map(x=>{
-          return (<h2>{x.message}</h2>)
+          return (<h2 key={x.id}>{x.message}</h2>)
         })
       }
     </div>
