@@ -1,6 +1,75 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateChatMessage = /* GraphQL */ `
+  subscription OnCreateChatMessage(
+    $filter: ModelSubscriptionChatMessageFilterInput
+  ) {
+    onCreateChatMessage(filter: $filter) {
+      id
+      message
+      Users {
+        id
+        firstName
+        lastName
+        email
+        createdAt
+        updatedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      chatMessageUsersId
+      __typename
+    }
+  }
+`;
+export const onUpdateChatMessage = /* GraphQL */ `
+  subscription OnUpdateChatMessage(
+    $filter: ModelSubscriptionChatMessageFilterInput
+  ) {
+    onUpdateChatMessage(filter: $filter) {
+      id
+      message
+      Users {
+        id
+        firstName
+        lastName
+        email
+        createdAt
+        updatedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      chatMessageUsersId
+      __typename
+    }
+  }
+`;
+export const onDeleteChatMessage = /* GraphQL */ `
+  subscription OnDeleteChatMessage(
+    $filter: ModelSubscriptionChatMessageFilterInput
+  ) {
+    onDeleteChatMessage(filter: $filter) {
+      id
+      message
+      Users {
+        id
+        firstName
+        lastName
+        email
+        createdAt
+        updatedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      chatMessageUsersId
+      __typename
+    }
+  }
+`;
 export const onCreatePost = /* GraphQL */ `
   subscription OnCreatePost(
     $filter: ModelSubscriptionPostFilterInput

@@ -4,6 +4,8 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
+export { default as ChatMessageCreateForm } from "./ChatMessageCreateForm";
+export { default as ChatMessageUpdateForm } from "./ChatMessageUpdateForm";
 export { default as PostCreateForm } from "./PostCreateForm";
 export { default as PostUpdateForm } from "./PostUpdateForm";
 export { default as UsersCreateForm } from "./UsersCreateForm";

@@ -1,5 +1,5 @@
 import { Amplify, API } from 'aws-amplify';
-import { getUsers, listPosts} from './graphql/queries'
+import { getUsers, listUsers } from './graphql/queries'
 import { createUsers } from './graphql/mutations';
 
 import { withAuthenticator } from '@aws-amplify/ui-react';
@@ -9,11 +9,17 @@ import awsExports from './aws-exports';
 
 import { useEffect, useState } from 'react';
 
+import Chat from './components/Chat'
+import Menu from './components/Menu'
+import UsersList from './components/UsersList'
+import './App.css';
+
 Amplify.configure(awsExports);
 
 function App({ signOut, user }) {
 
-  let [statePosts, setStatePosts] = useState([])
+  let [stateUsers, setStateUsers] = useState([])
+  let [stateUser, setStateUser] = useState(null);
 
   useEffect(() => {
 
@@ -23,8 +29,10 @@ function App({ signOut, user }) {
         variables: { id: user.username }
       });
 
+      setStateUser(oneUsers.data.getUsers);
+
       if (!oneUsers.data.getUsers) {
-         await API.graphql({
+        await API.graphql({
           query: createUsers,
           variables: {
             input: {
@@ -37,28 +45,37 @@ function App({ signOut, user }) {
         });
       }
 
-      let posts = await API.graphql({
-        query: listPosts
+      let users = await API.graphql({
+        query: listUsers
       });
 
-      setStatePosts(posts.data.listPosts.items);
-
-
+      setStateUsers(users.data.listUsers.items);
     }
 
     getUser();
+
 
   }, [user]);
 
   return (
     <div className="App">
-      <h1>Hola!!{user.attributes.name}</h1>
+      <div className='container-fluid'>
+        <div className='row bg-body-secondary'>
 
-      {
-        statePosts.map(x=>{
-          return (<h2 key={x.id}>{x.message}</h2>)
-        })
-      }
+          <div className="col-md-2 p-3 text-bg-dark">
+            <Menu user={user} signOut={signOut} />
+          </div>
+
+          <div className='col-md-6'>
+            <Chat stateUser={stateUser} />
+          </div>
+
+          <div className='col' style={{ overflowY: 'scroll', height: '100vh' }} >
+            <UsersList users={stateUsers} />
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
